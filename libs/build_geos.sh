@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 #
 # GEOS - https://trac.osgeo.org/geos/
 # GEOS (Geometry Engine - Open Source) is a C++ port of the JTS Topology Suite (JTS). It aims to contain the complete functionality of JTS in C++.
@@ -13,7 +13,7 @@ compiler=$(echo $HPC_COMPILER | sed 's/\//-/g')
 
 if $MODULES; then
   set +x
-  source $MODULESHOME/init/bash
+  source /usr/local/lmod/lmod/init/bash
   module load hpc-$HPC_COMPILER
   module try-load cmake
   module list

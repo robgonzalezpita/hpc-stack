@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 
 set -eux
 
@@ -13,7 +13,7 @@ install_as=${STACK_wgrib2_install_as:-${version}}
 
 if $MODULES; then
     set +x
-    source $MODULESHOME/init/bash
+    source /usr/local/lmod/lmod/init/bash
     module load hpc-$HPC_COMPILER
     module list
     set -x

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 
 set -eux
 
@@ -7,7 +7,7 @@ version=${1:-${STACK_eigen_version}}
 
 if $MODULES; then
   set +x
-  source $MODULESHOME/init/bash
+  source /usr/local/lmod/lmod/init/bash
   module load hpc-$HPC_COMPILER
   module try-load boost-headers
   module list

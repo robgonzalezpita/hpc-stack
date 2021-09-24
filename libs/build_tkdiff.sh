@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 
 # tkdiff is a side-by-side diff viewer, editor, and merge provider
 # this script installs into /usr/local/bin so it requires root privileges

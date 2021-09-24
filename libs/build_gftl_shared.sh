@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 
 set -eux
 
@@ -12,7 +12,7 @@ id=${version//\//-}
 
 if $MODULES; then
   set +x
-  source $MODULESHOME/init/bash
+  source /usr/local/lmod/lmod/init/bash
   module load hpc-$HPC_COMPILER
   module try-load cmake
   module list

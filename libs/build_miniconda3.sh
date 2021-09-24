@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 
 # Download and install Miniconda3
 # https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html

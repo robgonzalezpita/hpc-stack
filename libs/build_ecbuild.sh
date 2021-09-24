@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 
 set -eux
 
@@ -8,7 +8,7 @@ version=${2:-${STACK_ecbuild_version:-"release-stable"}}
 
 if $MODULES; then
   set +x
-  source $MODULESHOME/init/bash
+  source /usr/local/lmod/lmod/init/bash
   module try-load cmake
   module list
   set -x
