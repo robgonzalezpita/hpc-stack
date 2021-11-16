@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 set -eux
 
@@ -43,7 +43,7 @@ debug="--debug-configuration"
 
 if $MODULES; then
   set +x
-  source /usr/local/lmod/lmod/init/bash
+  source $MOUDLESHOME/init/bash
   module load hpc-$HPC_COMPILER
   [[ -z $mpi ]] || module load hpc-$HPC_MPI
   module list

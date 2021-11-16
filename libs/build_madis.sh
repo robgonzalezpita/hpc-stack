@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 set -eux
 
@@ -18,7 +18,7 @@ URL="https://madis-data.ncep.noaa.gov/source/$software.tar.gz"
 
 if $MODULES; then
   set +x
-  source /usr/local/lmod/lmod/init/bash
+  source $MOUDLESHOME/init/bash
   module load hpc-$HPC_COMPILER
   [[ -z $mpi ]] || module load hpc-$HPC_MPI
   module try-load szip

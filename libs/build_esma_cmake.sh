@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 set -eux
 
@@ -9,7 +9,7 @@ id=${version//\//-}
 
 if $MODULES; then
   set +x
-  source /usr/local/lmod/lmod/init/bash
+  source $MOUDLESHOME/init/bash
   module list
   set -x
 

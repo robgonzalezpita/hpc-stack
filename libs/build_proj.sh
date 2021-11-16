@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 # PROJ - https://proj.org/
 # PROJ is a generic coordinate transformation software that transforms geospatial coordinates from one coordinate reference system (CRS) to another.
@@ -13,7 +13,7 @@ compiler=$(echo $HPC_COMPILER | sed 's/\//-/g')
 
 if $MODULES; then
   set +x
-  source /usr/local/lmod/lmod/init/bash
+  source $MOUDLESHOME/init/bash
   module load hpc-$HPC_COMPILER
   module try-load cmake
   module load sqlite

@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 # This is a project to generate C++/Python bindings.
 # Library is header-only, so there is no need to link to Python here.
@@ -13,7 +13,7 @@ compiler=$(echo $HPC_COMPILER | sed 's/\//-/g')
 
 if $MODULES; then
   set +x
-  source /usr/local/lmod/lmod/init/bash
+  source $MOUDLESHOME/init/bash
   module load hpc-$HPC_COMPILER
   module try-load cmake
   module list

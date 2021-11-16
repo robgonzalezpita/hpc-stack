@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 # This Build Lmod
 # As written here, it requires root permission but this could be

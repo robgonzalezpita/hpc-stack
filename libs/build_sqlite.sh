@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 # SQLite - https://www.sqlite.org/
 # SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.
@@ -13,7 +13,7 @@ compiler=$(echo $HPC_COMPILER | sed 's/\//-/g')
 
 if $MODULES; then
   set +x
-  source /usr/local/lmod/lmod/init/bash
+  source $MOUDLESHOME/init/bash
   module load hpc-$HPC_COMPILER
   module list
   set -x

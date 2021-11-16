@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 # © Crown Copyright 2020 Met Office UK
 # This software is licensed under the terms of the Apache Licence Version 2.0 which can be obtained at
 # http://www.apache.org/licenses/LICENSE-2.0.
@@ -10,7 +10,7 @@ version=${1:-${STACK_json_version}}
 
 if $MODULES; then
     set +x
-    source /usr/local/lmod/lmod/init/bash
+    source $MOUDLESHOME/init/bash
     module load hpc-$HPC_COMPILER
     module try-load cmake
     module list

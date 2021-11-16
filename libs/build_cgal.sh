@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 #
 # CGAL Library used by Atlas
@@ -25,7 +25,7 @@ version=${1:-${STACK_cgal_version}}
 
 if $MODULES; then
   set +x
-  source /usr/local/lmod/lmod/init/bash
+  source $MOUDLESHOME/init/bash
   module load hpc-$HPC_COMPILER
   module load zlib
   module load boost-headers

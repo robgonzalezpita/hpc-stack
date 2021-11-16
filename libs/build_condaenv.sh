@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 set -eux
 
@@ -24,7 +24,7 @@ python=$(echo $HPC_PYTHON | sed 's/\//-/g')
 
 if $MODULES; then
   set +x
-  source /usr/local/lmod/lmod/init/bash
+  source $MOUDLESHOME/init/bash
   module load hpc-$HPC_PYTHON
   module list
   set -x

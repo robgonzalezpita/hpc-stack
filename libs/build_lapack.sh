@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 set -eux
 
@@ -11,7 +11,7 @@ compiler=$(echo $HPC_COMPILER | sed 's/\//-/g')
 # manage package dependencies here
 if $MODULES; then
     set +x
-    source /usr/local/lmod/lmod/init/bash
+    source $MOUDLESHOME/init/bash
     module load hpc-$HPC_COMPILER
     module list
     set -x

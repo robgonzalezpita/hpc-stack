@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash
 
 # Building cmake from source is sometimes preferable to package installs
 # because it allows you to get the most up-to-date versions and it
@@ -11,8 +11,7 @@ name="cmake"
 version=${1:-${STACK_cmake_version}}
 
 if $MODULES; then
-    source /usr/local/lmod/lmod/init/bash
-    source /usr/local/lmod/lmod/init/bash    
+    source $MOUDLESHOME/init/bash
     module --version
     module load hpc-$HPC_COMPILER
     module list
