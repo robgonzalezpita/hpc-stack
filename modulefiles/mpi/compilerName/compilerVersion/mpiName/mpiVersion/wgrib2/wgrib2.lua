@@ -13,21 +13,21 @@ local compNameVerD = compNameVer:gsub("/","-")
 
 conflict(pkgName)
 
-load("bacio", "w3emc")
-prereq("bacio", "w3emc")
+load("netcdf")
+prereq("netcdf")
 
 local opt = os.getenv("HPC_OPT") or os.getenv("OPT") or "/opt/modules"
 
 local base = pathJoin(opt,compNameVerD,mpiNameVerD,pkgName,pkgVersion)
 
-setenv("nemsio_ROOT", base)
-setenv("nemsio_VERSION", pkgVersion)
-setenv("NEMSIO_INC", pathJoin(base,"include"))
-setenv("NEMSIO_LIB", pathJoin(base,"lib/libnemsio.a"))
 prepend_path("PATH", pathJoin(base,"bin"))
+setenv("wgrib2_ROOT", base)
+setenv("wgrib2_VERSION", pkgVersion)
+setenv("WGRIB2_INC", pathJoin(base,"include"))
+setenv("WGRIB_LIB", pathJoin(base,"lib/libwgrib2.a"))
+setenv("WGRIB2_LIBAPI", pathJoin(base,"lib/libwgrib2_api.a"))
 
 whatis("Name: ".. pkgName)
 whatis("Version: " .. pkgVersion)
 whatis("Category: library")
 whatis("Description: " .. pkgName .. " library")
-
