@@ -84,9 +84,9 @@ esmf:
 
 fms:
   build: YES
-  version: 2021.03
+  version: 2020.04.03
   repo: noaa-gfdl
-  cmake_opts: "-DGFS_PHYS=ON -D64BIT=ON -DOPENMP=ON"
+  cmake_opts: "-DGFS_PHYS=ON -D64BIT=ON -DLARGEFILE=ON"
 
 bacio:
   build: YES
