@@ -38,7 +38,7 @@ usage() {
 #===============================================================================
 
 # Defaults:
-PREFIX="$HOME/opt"
+#PREFIX="$HOME/opt"
 config="${HPC_STACK_ROOT}/config/config_custom.sh"
 
 while getopts ":p:c:h" opt; do
