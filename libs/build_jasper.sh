@@ -12,7 +12,7 @@ compiler=$(echo $HPC_COMPILER | sed 's/\//-/g')
 
 if $MODULES; then
   set +x
-  source $MODULESHOME/init/bash
+  source $MOUDLESHOME/init/bash
   module load hpc-$HPC_COMPILER
   # Load jpeg module if created by hpc-stack; requires setting
   # MAKE_POLICY_DEFAULT_CMP0074 to new below so that JPEG_ROOT is searched
@@ -21,8 +21,13 @@ if $MODULES; then
   set -x
   prefix="${PREFIX:-"/opt/modules"}/$compiler/$name/$version"
   if [[ -d $prefix ]]; then
-      [[ $OVERWRITE =~ [yYtT] ]] && ( echo "WARNING: $prefix EXISTS: OVERWRITING!";$SUDO rm -rf $prefix ) \
-                                 || ( echo "WARNING: $prefix EXISTS, SKIPPING"; exit 1 )
+      if [[ $OVERWRITE =~ [yYtT] ]]; then
+          echo "WARNING: $prefix EXISTS: OVERWRITING!"
+          $SUDO rm -rf $prefix
+      else
+          echo "WARNING: $prefix EXISTS, SKIPPING"
+          exit 0
+      fi
   fi
 else
     prefix=${JASPER_ROOT:-"/usr/local"}

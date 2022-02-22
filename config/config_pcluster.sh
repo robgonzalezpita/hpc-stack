@@ -20,3 +20,4 @@ export STACK_EXIT_ON_FAIL=Y
 export WGET="wget -nv"
 
 source /scratch1/apps/lmod/lmod/init/bash
+

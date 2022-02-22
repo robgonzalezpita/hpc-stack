@@ -42,7 +42,7 @@ sudo ln -s $lua_version lua
 sudo ln -s $mods_path/lua/$lua_version/bin/* /usr/local/bin
 
 # install lmod
-# this installs in $MODULESHOME, which is set to $mods_path/lmod/lmod
+# this installs in /usr/local/lmod/lmod, which is set to $mods_path/lmod/lmod
 cd ${HPC_STACK_ROOT}/${PKGDIR:-"pkg"}
 $WGET https://sourceforge.net/projects/lmod/files/Lmod-$lmod_version.tar.bz2
 bzip2 -d Lmod-$lmod_version.tar.bz2; tar xvf Lmod-$lmod_version.tar

@@ -17,7 +17,7 @@ usage() {
   echo
   echo "Usage: $0 -p <prefix> | -c <config> | -y <yaml> | -l <library> -m -h"
   echo
-  echo "  -p  installation prefix <prefix>    DEFAULT: $HOME/opt"
+  echo "  -p  installation prefix <prefix>    DEFAULT: /scratch1/hpc-stack"
   echo "  -c  use configuration file <config> DEFAULT: config/config_custom.sh"
   echo "  -y  use yaml file <yaml>            DEFAULT: config/stack_custom.yaml"
   echo "  -m  use modules                     DEFAULT: NO"
@@ -31,7 +31,7 @@ usage() {
 
 # Defaults:
 library=""
-export PREFIX="$HOME/opt"
+export PREFIX="/scratch1/hpc-stack"
 config="${HPC_STACK_ROOT}/config/config_custom.sh"
 yaml="${HPC_STACK_ROOT}/stack/stack_custom.yaml"
 export MODULES=false
@@ -136,12 +136,34 @@ build_lib cmake
 build_lib udunits
 build_lib jpeg
 build_lib zlib
-build_lib png
+build_lib libpng
 build_lib szip
 build_lib jasper
 build_lib sqlite
 build_lib proj
 build_lib geos
+
+# Also build serial versions of HDF5 and netCDF, if using MODULES
+if $MODULES; then
+
+  # Save $HPC_MPI variable
+  _HPC_MPI=$HPC_MPI
+  export HPC_MPI=""
+
+  # Build hdf5 and netcdf as serial versions
+  build_lib hdf5
+  build_lib netcdf
+
+  # Build netcdf utilities with the serial netCDF library
+  build_lib nccmp
+  build_lib nco
+  build_lib cdo
+
+  # Restore $HPC_MPI variable
+  export HPC_MPI=$_HPC_MPI
+  unset _HPC_MPI
+
+fi
 
 #----------------------
 # MPI-dependent
@@ -149,9 +171,12 @@ build_lib geos
 build_lib hdf5
 build_lib pnetcdf
 build_lib netcdf
-build_lib nccmp
-build_lib nco
-build_lib cdo
+# Only build these if only parallel builds are installed
+if ! $MODULES; then
+  build_lib nccmp
+  build_lib nco
+  build_lib cdo
+fi
 build_lib pio
 
 # NCEPlibs
@@ -161,13 +186,13 @@ build_lib sigio
 build_lib sfcio
 build_lib gfsio
 build_lib w3nco
+build_lib w3emc
 build_lib sp
 build_lib ip
 build_lib ip2
 build_lib landsfcutil
 build_lib nemsio
 build_lib nemsiogfs
-build_lib w3emc
 build_lib g2
 build_lib g2c
 build_lib g2tmpl
@@ -180,6 +205,20 @@ build_lib wgrib2
 build_lib prod_util
 build_lib grib_util
 build_lib ncio
+
+if $MODULES; then
+
+  # Save $HPC_MPI variable
+  _HPC_MPI=$HPC_MPI
+  export HPC_MPI=""
+
+  build_lib nemsio
+
+  # Restore $HPC_MPI variable
+  export HPC_MPI=$_HPC_MPI
+  unset _HPC_MPI
+
+fi
 
 # Other
 

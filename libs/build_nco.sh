@@ -9,9 +9,17 @@ version=${1:-${STACK_nco_version}}
 compiler=$(echo $HPC_COMPILER | sed 's/\//-/g')
 mpi=$(echo $HPC_MPI | sed 's/\//-/g')
 
+URL="https://github.com/nco/nco.git"
+
+cd ${HPC_STACK_ROOT}/${PKGDIR:-"pkg"}
+
+software=$name-$version
+[[ -d $software ]] || ( git clone -b $version $URL $software )
+[[ ${DOWNLOAD_ONLY} =~ [yYtT] ]] && exit 0
+
 if $MODULES; then
   set +x
-  source $MODULESHOME/init/bash
+  source $MOUDLESHOME/init/bash
   module load hpc-$HPC_COMPILER
   [[ -z $mpi ]] || module load hpc-$HPC_MPI
   module try-load zlib
@@ -29,8 +37,13 @@ if $MODULES; then
   prefix="${PREFIX:-"/opt/modules"}/$compiler/$mpi/$name/$version"
 
   if [[ -d $prefix ]]; then
-    [[ $OVERWRITE =~ [yYtT] ]] && ( echo "WARNING: $prefix EXISTS: OVERWRITING!";$SUDO rm -rf $prefix ) \
-                               || ( echo "WARNING: $prefix EXISTS, SKIPPING"; exit 1 )
+      if [[ $OVERWRITE =~ [yYtT] ]]; then
+          echo "WARNING: $prefix EXISTS: OVERWRITING!"
+          $SUDO rm -rf $prefix
+      else
+          echo "WARNING: $prefix EXISTS, SKIPPING"
+          exit 0
+      fi
   fi
 else
     prefix=${NCO_ROOT:-"/usr/local"}
@@ -72,13 +85,6 @@ NETCDF_LIBS="-lnetcdf"
 export LDFLAGS="${PNETCDF_LDFLAGS:-} ${NETCDF_LDFLAGS:-} ${HDF5_LDFLAGS:-} ${AM_LDFLAGS:-}"
 export LIBS="${PNETCDF_LIBS:-} ${NETCDF_LIBS:-} ${HDF5_LIBS:-} ${EXTRA_LIBS:-}"
 
-URL="https://github.com/nco/nco.git"
-
-cd ${HPC_STACK_ROOT}/${PKGDIR:-"pkg"}
-
-software=$name-$version
-[[ -d $software ]] || ( git clone -b $version $URL $software )
-[[ ${DOWNLOAD_ONLY} =~ [yYtT] ]] && exit 0
 [[ -d $software ]] && cd $software || ( echo "$software does not exist, ABORT!"; exit 1 )
 [[ -d build ]] && rm -rf build
 mkdir -p build && cd build

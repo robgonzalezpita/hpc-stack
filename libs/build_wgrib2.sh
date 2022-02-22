@@ -13,14 +13,19 @@ install_as=${STACK_wgrib2_install_as:-${version}}
 
 if $MODULES; then
     set +x
-    source $MODULESHOME/init/bash
+    source $MOUDLESHOME/init/bash
     module load hpc-$HPC_COMPILER
     module list
     set -x
     prefix="${PREFIX:-"/opt/modules"}/$compiler/$name/$install_as"
     if [[ -d $prefix ]]; then
-        [[ $OVERWRITE =~ [yYtT] ]] && ( echo "WARNING: $prefix EXISTS: OVERWRITING!";$SUDO rm -rf $prefix ) \
-            || ( echo "WARNING: $prefix EXISTS, SKIPPING"; exit 1 )
+      if [[ $OVERWRITE =~ [yYtT] ]]; then
+          echo "WARNING: $prefix EXISTS: OVERWRITING!"
+          $SUDO rm -rf $prefix
+      else
+          echo "WARNING: $prefix EXISTS, SKIPPING"
+          exit 0
+      fi
     fi
 else
     prefix=${WGRIB2_ROOT:-"/usr/local"}

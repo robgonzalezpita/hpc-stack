@@ -10,7 +10,7 @@ version=${1:-${STACK_json_version}}
 
 if $MODULES; then
     set +x
-    source $MODULESHOME/init/bash
+    source $MOUDLESHOME/init/bash
     module load hpc-$HPC_COMPILER
     module try-load cmake
     module list
@@ -18,8 +18,13 @@ if $MODULES; then
 
     prefix="${PREFIX:-"/opt/modules"}/core/$name/$version"
     if [[ -d $prefix ]]; then
-        [[ $OVERWRITE =~ [yYtT] ]] && ( echo "WARNING: $prefix EXISTS: OVERWRITING!"; $SUDO rm -rf $prefix ) \
-                                   || ( echo "WARNING: $prefix EXISTS, SKIPPING"; exit 1 )
+      if [[ $OVERWRITE =~ [yYtT] ]]; then
+          echo "WARNING: $prefix EXISTS: OVERWRITING!"
+          $SUDO rm -rf $prefix
+      else
+          echo "WARNING: $prefix EXISTS, SKIPPING"
+          exit 0
+      fi
     fi
 else
     prefix=${JSON_ROOT:-"/usr/local"}
