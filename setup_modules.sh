@@ -28,7 +28,7 @@ usage() {
   echo
   echo "Usage: $0 -p <prefix> | -c <config> | -h"
   echo
-  echo "  -p  installation prefix <prefix>    DEFAULT: $HOME/opt"
+  echo "  -p  installation prefix <prefix>    DEFAULT: /scratch1/hpc-stack"
   echo "  -c  use configuration file <config> DEFAULT: config/config_custom.sh"
   echo "  -h  display this message and quit"
   echo
@@ -38,7 +38,7 @@ usage() {
 #===============================================================================
 
 # Defaults:
-#PREFIX="$HOME/opt"
+PREFIX="/scratch1/hpc-stack"
 config="${HPC_STACK_ROOT}/config/config_custom.sh"
 
 while getopts ":p:c:h" opt; do
