@@ -17,7 +17,7 @@ usage() {
   echo
   echo "Usage: $0 -p <prefix> | -c <config> | -y <yaml> | -l <library> -m -h"
   echo
-  echo "  -p  installation prefix <prefix>    DEFAULT: $HOME/opt"
+  echo "  -p  installation prefix <prefix>    DEFAULT: /scratch1/hpc-stack"
   echo "  -c  use configuration file <config> DEFAULT: config/config_custom.sh"
   echo "  -y  use yaml file <yaml>            DEFAULT: config/stack_custom.yaml"
   echo "  -m  use modules                     DEFAULT: NO"
@@ -31,7 +31,7 @@ usage() {
 
 # Defaults:
 library=""
-export PREFIX="$HOME/opt"
+export PREFIX="/scratch1/hpc-stack"
 config="${HPC_STACK_ROOT}/config/config_custom.sh"
 yaml="${HPC_STACK_ROOT}/stack/stack_custom.yaml"
 export MODULES=false
