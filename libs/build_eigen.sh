@@ -7,7 +7,7 @@ version=${1:-${STACK_eigen_version}}
 
 if $MODULES; then
   set +x
-  source $MOUDLESHOME/init/bash
+  source /scratch1/apps/lmod/lmod/init/bash
   module load hpc-$HPC_COMPILER
   module try-load boost-headers
   module list

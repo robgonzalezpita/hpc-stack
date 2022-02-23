@@ -10,7 +10,7 @@ version=${1:-${STACK_json_version}}
 
 if $MODULES; then
     set +x
-    source $MOUDLESHOME/init/bash
+    source /scratch1/apps/lmod/lmod/init/bash
     module load hpc-$HPC_COMPILER
     module try-load cmake
     module list

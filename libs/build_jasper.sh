@@ -12,7 +12,7 @@ compiler=$(echo $HPC_COMPILER | sed 's/\//-/g')
 
 if $MODULES; then
   set +x
-  source $MOUDLESHOME/init/bash
+  source /scratch1/apps/lmod/lmod/init/bash
   module load hpc-$HPC_COMPILER
   # Load jpeg module if created by hpc-stack; requires setting
   # MAKE_POLICY_DEFAULT_CMP0074 to new below so that JPEG_ROOT is searched

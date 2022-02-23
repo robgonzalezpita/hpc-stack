@@ -13,7 +13,7 @@ id=$(echo $version | sed 's/v//')
 
 if $MODULES; then
   set +x
-  source $MOUDLESHOME/init/bash
+  source /scratch1/apps/lmod/lmod/init/bash
   module load hpc-$HPC_COMPILER
   module load hpc-$HPC_MPI
   module try-load cmake

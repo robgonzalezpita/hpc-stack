@@ -8,7 +8,7 @@ version=${2:-${STACK_ecbuild_version:-"release-stable"}}
 
 if $MODULES; then
   set +x
-  source $MOUDLESHOME/init/bash
+  source /scratch1/apps/lmod/lmod/init/bash
   module try-load cmake
   module list
   set -x

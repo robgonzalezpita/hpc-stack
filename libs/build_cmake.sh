@@ -11,7 +11,7 @@ name="cmake"
 version=${1:-${STACK_cmake_version}}
 
 if $MODULES; then
-    source /scratch1/apps/lmod/lmod/init/bash
+    source source /scratch1/apps/lmod/lmod/init/bash
     module --version
     module load hpc-$HPC_COMPILER
     module list

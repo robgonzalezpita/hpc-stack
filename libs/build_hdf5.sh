@@ -15,7 +15,7 @@ mpi=$(echo $HPC_MPI | sed 's/\//-/g')
 
 if $MODULES; then
   set +x
-  source $MOUDLESHOME/init/bash
+  source /scratch1/apps/lmod/lmod/init/bash
   module load hpc-$HPC_COMPILER
   [[ -z $mpi ]] || module load hpc-$HPC_MPI
   [[ $enable_szip =~ [yYtT] ]] && module try-load szip

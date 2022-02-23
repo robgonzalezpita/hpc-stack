@@ -9,7 +9,7 @@ id=${version//\//-}
 
 if $MODULES; then
   set +x
-  source $MOUDLESHOME/init/bash
+  source /scratch1/apps/lmod/lmod/init/bash
   module list
   set -x
 

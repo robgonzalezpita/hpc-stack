@@ -25,7 +25,7 @@ host=$(uname -s)
 
 if $MODULES; then
   set +x
-  source $MOUDLESHOME/init/bash
+  source /scratch1/apps/lmod/lmod/init/bash
   module load hpc-$HPC_COMPILER
   module try-load zlib
   module try-load szip

@@ -11,7 +11,7 @@ compiler=$(echo $HPC_COMPILER | sed 's/\//-/g')
 # manage package dependencies here
 if $MODULES; then
     set +x
-    source $MOUDLESHOME/init/bash
+    source /scratch1/apps/lmod/lmod/init/bash
     module load hpc-$HPC_COMPILER
     module list
     set -x
