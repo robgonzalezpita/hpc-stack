@@ -96,7 +96,7 @@ mkdir -p $logdir
 # ==============================================================================
 # start with a clean slate
 if $MODULES; then
-  source $MODULESHOME/init/bash
+  source /scratch1/apps/lmod/lmod/init/bash
   module use $PREFIX/modulefiles/stack
   module load hpc
 else
