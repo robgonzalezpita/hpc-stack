@@ -37,9 +37,13 @@ URL="https://cmake.org/files/v${version%.*}/$software.tar.gz"
 [[ ${DOWNLOAD_ONLY} =~ [yYtT] ]] && exit 0
 [[ -d $software ]] && cd $software || ( echo "$software does not exist, ABORT!"; exit 1 )
 
-export CC=$SERIAL_CC
-export CXX=$SERIAL_CXX
-export FC=$SERIAL_FC
+# export CC=$SERIAL_CC
+# export CXX=$SERIAL_CXX
+# export FC=$SERIAL_FC
+
+export CC=/opt/intel/oneapi/compiler/2022.0.2/linux/bin/intel64/icc
+export CXX=/opt/intel/oneapi/compiler/2022.0.2/linux/bin/intel64/icpc
+export FC=/opt/intel/oneapi/compiler/2022.0.2/linux/bin/intel64/ifort
 
 # CMake must be available if boostrap is set to no
 if [[ ${STACK_cmake_bootstrap:-} =~ [nNfF] ]]; then
