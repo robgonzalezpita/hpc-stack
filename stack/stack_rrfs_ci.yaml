@@ -77,7 +77,7 @@ pio:
 
 esmf:
   build: YES
-  version: 8_1_1
+  version: 8_2_0_beta_snapshot_14
   shared: YES
   enable_pnetcdf: NO
   debug: NO
@@ -190,8 +190,8 @@ crtm:
 
 upp:
   build: YES
-  version: upp_v10.0.9
-  install_as: 10.0.9
+  version: upp_v10.0.10
+  install_as: 10.0.10
   openmp: ON
   is_nceplib: YES
 
@@ -314,7 +314,7 @@ cmakemodules:
 gftl_shared:
   build: NO
   repo: Goddard-Fortran-Ecosystem
-  version: v1.3.0
+  version: v1.3.3
 
 yafyaml:
   build: NO
