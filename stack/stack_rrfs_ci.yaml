@@ -311,12 +311,12 @@ cmakemodules:
   version: v1.2.0
 
 gftl_shared:
-  build: NO
+  build: YES
   repo: Goddard-Fortran-Ecosystem
   version: v1.3.3
 
 yafyaml:
-  build: NO
+  build: YES
   repo: Goddard-Fortran-Ecosystem
   version: v0.5.1
 
@@ -352,11 +352,3 @@ ufswm:
   build: NO
   version: 1.0.0
   is_pyvenv: YES
-  
-crtm:
-  build: YES
-  version: v2.3.0
-  install_as: 2.3.0
-  is_nceplib: YES
-  install_fix: NO
-  
