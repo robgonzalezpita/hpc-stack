@@ -20,7 +20,7 @@ zlib:
   build: YES
   version: 1.2.11
 
-libpng:
+png:
   build: YES
   version: 1.6.35
 
@@ -71,13 +71,13 @@ cdo:
 
 pio:
   build: YES
-  version: 2.5.3
+  version: 2.5.2
   enable_pnetcdf: NO
   enable_gptl: NO
 
 esmf:
   build: YES
-  version: 8_2_0_beta_snapshot_14
+  version: 8_2_0
   shared: YES
   enable_pnetcdf: NO
   debug: NO
@@ -159,14 +159,14 @@ nemsiogfs:
 
 w3emc:
   build: YES
-  version: v2.9.2
-  install_as: 2.9.2
+  version: v2.7.3
+  install_as: 2.7.3
   is_nceplib: YES
 
 g2:
   build: YES
-  version: v3.4.5
-  install_as: 3.4.5
+  version: v3.4.3
+  install_as: 3.4.3
   is_nceplib: YES
 
 g2c:
@@ -211,11 +211,10 @@ bufr:
 
 wgrib2:
   build: YES
-  version: v2.0.8-cmake-v6
-  install_as: 2.0.8-blarn
-  openmp: ON
-  cmake_opts: "-DUSE_SPECTRAL=ON -DUSE_IPOLATES=3 -DUSE_NETCDF4=ON"
-  is_nceplib: YES
+  version: 2.0.8
+  install_as: 2.0.8
+  lib: YES
+  ipolates: 3
 
 prod_util:
   build: YES
@@ -322,9 +321,10 @@ yafyaml:
   version: v0.5.1
 
 mapl:
-  build: NO
+  build: YES
   repo: GEOS-ESM
-  version: v2.7.3
+  esmf_version: 8.2.0
+  version: v2.11.0 
 
 geos:
   build: NO
@@ -352,3 +352,11 @@ ufswm:
   build: NO
   version: 1.0.0
   is_pyvenv: YES
+  
+crtm:
+  build: YES
+  version: v2.3.0
+  install_as: 2.3.0
+  is_nceplib: YES
+  install_fix: NO
+  
