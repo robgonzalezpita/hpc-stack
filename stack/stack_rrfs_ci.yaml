@@ -20,7 +20,7 @@ zlib:
   build: YES
   version: 1.2.11
 
-png:
+libpng:
   build: YES
   version: 1.6.35
 
@@ -277,8 +277,8 @@ pybind11:
   version: 2.5.0
 
 ecbuild:
-  build: NO
-  version: 3.6.1
+  build: YES
+  version: 2021.08.0
   repo: ecmwf
 
 eckit:
@@ -301,12 +301,12 @@ madis:
   version: 4.3
 
 esma_cmake:
-  build: NO
+  build: YES
   repo: GEOS-ESM
-  version: v3.4.3
+  version: v3.12.0
 
 cmakemodules:
-  build: NO
+  build: YES
   repo: NOAA-EMC
   version: v1.2.0
 
