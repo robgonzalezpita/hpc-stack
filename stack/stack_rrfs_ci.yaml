@@ -53,7 +53,7 @@ netcdf:
   shared: YES
   enable_pnetcdf: NO
   version_c: 4.7.4
-  version_f: 4.5.3
+  version_f: 4.5.4
   version_cxx: 4.3.1
   disable_cxx: YES
 
