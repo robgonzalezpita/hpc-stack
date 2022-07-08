@@ -19,5 +19,13 @@ export DOWNLOAD_ONLY=N
 export STACK_EXIT_ON_FAIL=Y
 export WGET="wget -nv"
 
+export SERIAL_CC=icc
+export SERIAL_FC=ifort
+export SERIAL_CXX=icpc
+
+export MPI_CC=mpiicc
+export MPI_FC=mpiifort
+export MPI_CXX=mpiicpc
+
 source /scratch1/apps/lmod/lmod/init/bash
 
