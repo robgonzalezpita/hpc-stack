@@ -22,7 +22,7 @@ zlib:
 
 libpng:
   build: YES
-  version: 1.6.35
+  version: 1.6.37
 
 szip:
   build: YES
@@ -71,7 +71,7 @@ cdo:
 
 pio:
   build: YES
-  version: 2.5.2
+  version: 2.5.3
   enable_pnetcdf: NO
   enable_gptl: NO
 
@@ -85,7 +85,7 @@ esmf:
 
 fms:
   build: YES
-  version: 2021.03
+  version: 2022.01
   repo: noaa-gfdl
   cmake_opts: "-DGFS_PHYS=ON -D64BIT=ON -DOPENMP=ON"
 
@@ -148,8 +148,8 @@ landsfcutil:
 
 nemsio:
   build: YES
-  version: v2.5.2
-  install_as: 2.5.2
+  version: v2.5.4
+  install_as: 2.5.4
   is_nceplib: YES
 
 nemsiogfs:
@@ -166,8 +166,8 @@ w3emc:
 
 g2:
   build: YES
-  version: v3.4.3
-  install_as: 3.4.3
+  version: v3.4.5
+  install_as: 3.4.5
   is_nceplib: YES
 
 g2c:
@@ -204,8 +204,8 @@ wrf_io:
 
 bufr:
   build: YES
-  version: bufr_v11.5.0
-  install_as: 11.5.0
+  version: bufr_v11.7.0
+  install_as: 11.7.0
   python: YES
   is_nceplib: YES
 
@@ -231,8 +231,8 @@ grib_util:
 
 ncio:
   build: YES
-  version: v1.0.0
-  install_as: 1.0.0
+  version: v1.1.2
+  install_as: 1.1.2
   is_nceplib: YES
 
 boost:
