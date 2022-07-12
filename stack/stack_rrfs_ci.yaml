@@ -324,7 +324,7 @@ mapl:
   build: YES
   repo: GEOS-ESM
   esmf_version: 8.3.0b09
-  version: v2.12.2 
+  version: v2.11.0
 
 geos:
   build: NO
